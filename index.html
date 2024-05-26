@@ -13,10 +13,22 @@
       <p>Klik op de knop om te beginnen</p>
       <button id="start-button">Start spel</button>
     </div>
+
+    <div id="win-screen">
+      <h1>Gefeliciteerd! U bent gewonnen.</h1>
+      <p>U heeft 5 appels kunnen plukken in 60 seconden tijd.</p>
+      <button id="start-button">Opnieuw spelen</button>
+    </div>
     <div id="canvas-container"></div>
     <div id="game-info">
       <div id="timer"></div>
-      <div id="score"></div>
+      <div id="score">
+        <div class="apple"></div>
+        <div class="apple"></div>
+        <div class="apple"></div>
+        <div class="apple"></div>
+        <div class="apple"></div>
+      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.dom.js"></script>

@@ -1,13 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("backgroundImage.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #canvas-container {
+  display: none;
   position: relative;
   z-index: 0;
 }
@@ -17,17 +27,16 @@ h1 {
   font-size: 24px;
   font-family: monospace;
 }
+
 p {
   color: #fff;
   font-size: 16px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#start-screen {
-  background-image: url("backgroundImage.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+#start-screen,
+#win-screen {
+  background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 0;
   left: 0;
@@ -36,10 +45,13 @@ p {
   justify-content: center;
   align-items: center;
   gap: 24px;
-  background-color: rgba(0, 0, 0);
   z-index: 999;
   width: 100%;
   height: 100vh;
+}
+
+#win-screen {
+  display: none;
 }
 
 #start-button {
@@ -53,12 +65,21 @@ p {
 }
 
 #game-info {
+  display: none;
   position: absolute;
-  top: 20px;
-  left: 20px;
-  display: flex;
+  top: 28%;
+  left: 36%;
+  transform: translate(-50%, -50%);
   flex-direction: column;
   gap: 16px;
+  background-color: green;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+#game-info div {
+  font-family: "Work Sans", sans-serif;
 }
 
 button {
@@ -67,4 +88,59 @@ button {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
+}
+
+.btn {
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.apple {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  position: relative;
+}
+
+.apple::before,
+.apple::after {
+  background-color: transparent;
+}
+
+.apple::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.apple::after {
+  content: "";
+  width: 4px;
+  height: 10px;
+  position: absolute;
+  top: -10px;
+  left: 8px;
+}
+
+.apple::before,
+.apple::after {
+  z-index: 1;
+}
+
+.apple.filled::before {
+  background-color: #ff0000;
+}
+
+.apple.filled::after {
+  background-color: #006400;
 }
